@@ -1,0 +1,37 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mt-5 mx-auto">
+      <div class="card">
+        <div class="card-header" style="text-align: center;">
+          <h3> Login Form</h3>
+      </div>
+        <div class="card-body">
+     
+      <form (submit)="login()" [formGroup]="angForm1" novalidate >
+      
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" formControlName="email" placeholder="Enter email" [(ngModel)]="credentials.email">
+          <div *ngIf="angForm1.controls['email'].invalid && (angForm1.controls['email'].dirty || angForm1.controls['email'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm1.controls['email'].errors.required">
+              Email is required.
+            </div>
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" formControlName="password" placeholder="Password" [(ngModel)]="credentials.password">
+          <div *ngIf="angForm1.controls['password'].invalid && (angForm1.controls['password'].dirty || angForm1.controls['password'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm1.controls['password'].errors.required">
+              Password is required.
+            </div>
+        </div>
+        </div>
+        <button type="submit" [disabled]="angForm1.pristine || angForm1.invalid"  class="btn btn-lg btn-primary btn-block">Sign in</button>
+      </form>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
